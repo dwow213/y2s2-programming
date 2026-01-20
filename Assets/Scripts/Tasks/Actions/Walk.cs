@@ -13,12 +13,13 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<int> score;
 		public BBParameter<int> currentPoint;
 		public BBParameter<List<Transform>> destinations;
+		public int setSpeed;
 		public BBParameter<float> moveSpeed;
         public BBParameter<float> stoppingDistance;
 
         protected override void OnExecute() 
 		{
-			moveSpeed.value = 3;
+			moveSpeed.value = setSpeed;
 			//EndAction(true);
 		}
 

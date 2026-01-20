@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class HareRun : ActionTask {
+	public class ChargeUp : ActionTask 
+    {
 
-        public BBParameter<int> score;
         public BBParameter<int> currentPoint;
         public BBParameter<List<Transform>> destinations;
         public BBParameter<float> moveSpeed;
@@ -16,7 +16,12 @@ namespace NodeCanvas.Tasks.Actions {
 
         protected override void OnExecute()
         {
-            moveSpeed.value = 7;
+            moveSpeed.value = 5;
+
+            currentPoint.value -= 1;
+            if (currentPoint.value < 0)
+                currentPoint = 3;
+
             //EndAction(true);
         }
 
@@ -34,13 +39,6 @@ namespace NodeCanvas.Tasks.Actions {
             if (Vector3.Distance(agent.transform.position, destination.position) < stoppingDistance.value)
             {
                 agent.transform.position = destination.position;
-                currentPoint.value += 1;
-
-                if (currentPoint.value > 3)
-                {
-                    score.value += 1;
-                    currentPoint.value = 0;
-                }
 
             }
         }
