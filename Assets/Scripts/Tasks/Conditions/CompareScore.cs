@@ -6,8 +6,8 @@ namespace NodeCanvas.Tasks.Conditions {
 
 	public class CompareScore : ConditionTask 
 	{
-		public BBParameter<int> scoreA;
-		int scoreB;
+		public BBParameter<int> scoreA; //score A should be the score of the agent
+		int scoreB; //score B should be the score of the other agent, specified by targetBB
         public int offsetScoreB;
         public Blackboard targetBB;
 

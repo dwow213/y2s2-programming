@@ -19,6 +19,7 @@ public class ScoreUpdater : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //get scores from the blackboards
         int hareScore = hare.GetVariableValue<int>("score");
         int turtleScore = turtle.GetVariableValue<int>("score");
 
