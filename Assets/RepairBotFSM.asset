@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: RepairBotFSM
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"scanRadiusBBP":{"_name":"scanRadius","_targetVariableID":"0f4ae573-9c01-405d-bc42-1546d0aeb0e6"},"lightTowerTargetBBP":{"_name":"lightTowerTarget","_targetVariableID":"b7f6cd64-6508-463c-948d-2e209107737a"},"scanLayer":{"value":64},"scanColour":{"g":1.0,"b":0.02703118,"a":1.0},"scanDuration":3.0,"numberOfScanCirclePoints":8,"$type":"NodeCanvas.Tasks.Actions.ScanAT"}]},"_transitionEvaluation":1,"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Scan","_position":{"x":816.0,"y":400.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"scanRadiusBBP":{"_name":"scanRadius","_targetVariableID":"0f4ae573-9c01-405d-bc42-1546d0aeb0e6"},"$type":"NodeCanvas.Tasks.Actions.BoostAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Boost","_position":{"x":1110.691,"y":234.9393},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"target":{"_name":"lightTowerTarget","_targetVariableID":"b7f6cd64-6508-463c-948d-2e209107737a"},"speed":{"_name":"speed","_targetVariableID":"c70989de-3365-48af-8884-8ab719aad251"},"arrivalDistance":{"_name":"arrivalDistance","_targetVariableID":"c090e909-41a4-4ee2-b648-dd353d1d9ef6"},"$type":"NodeCanvas.Tasks.Actions.ApproachAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Approach","_position":{"x":1086.05,"y":620.7682},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"lightTowerTargetBBP":{"_name":"lightTowerTarget","_targetVariableID":"b7f6cd64-6508-463c-948d-2e209107737a"},"scanRadiusBBP":{"_name":"scanRadius","_targetVariableID":"0f4ae573-9c01-405d-bc42-1546d0aeb0e6"},"initialRadiusBBP":{"_name":"initialScanRadius","_targetVariableID":"4eccb73f-dabb-4211-be7c-362de00d2c1d"},"$type":"NodeCanvas.Tasks.Actions.RepairAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Repair","_position":{"x":903.157,"y":528.2562},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"}],"connections":[{"_condition":{"variable":{"_name":"lightTowerTarget","_targetVariableID":"b7f6cd64-6508-463c-948d-2e209107737a"},"$type":"NodeCanvas.Tasks.Conditions.CheckNull"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"variable":{"_name":"lightTowerTarget","_targetVariableID":"b7f6cd64-6508-463c-948d-2e209107737a"},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.CheckNull"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"initialScanRadius":{"_name":"initialScanRadius","_id":"4eccb73f-dabb-4211-be7c-362de00d2c1d","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"scanRadius":{"_name":"scanRadius","_id":"0f4ae573-9c01-405d-bc42-1546d0aeb0e6","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"lightTowerTarget":{"_name":"lightTowerTarget","_id":"b7f6cd64-6508-463c-948d-2e209107737a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"speed":{"_value":3.0,"_name":"speed","_id":"c70989de-3365-48af-8884-8ab719aad251","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"arrivalDistance":{"_value":0.2,"_name":"arrivalDistance","_id":"c090e909-41a4-4ee2-b648-dd353d1d9ef6","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 129, y: -132}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}
