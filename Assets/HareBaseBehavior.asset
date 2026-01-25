@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: HareBaseBehavior
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"score":{"_name":"score","_targetVariableID":"67d66b3b-aede-4672-9ca6-7ef37cc70aac"},"currentPoint":{"_name":"currentPoint","_targetVariableID":"d7b02cc6-888c-4765-ae35-79b7ab2501ce"},"destinations":{"_name":"destinations","_targetVariableID":"21300f1d-e479-4e3e-8a4f-53059cf336f8"},"setSpeed":30,"moveSpeed":{"_name":"moveSpeed","_targetVariableID":"e8959efa-6ca5-4e8a-89da-12dd7770bc9b"},"stoppingDistance":{"_name":"stoppingDistance","_targetVariableID":"90f64bc6-fc90-4271-b89f-506d2189f3f4"},"$type":"NodeCanvas.Tasks.Actions.Walk"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Run","_position":{"x":223.0,"y":229.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"score":{"_name":"score","_targetVariableID":"67d66b3b-aede-4672-9ca6-7ef37cc70aac"},"currentPoint":{"_name":"currentPoint","_targetVariableID":"d7b02cc6-888c-4765-ae35-79b7ab2501ce"},"destinations":{"_name":"destinations","_targetVariableID":"21300f1d-e479-4e3e-8a4f-53059cf336f8"},"setSpeed":15,"moveSpeed":{"_name":"moveSpeed","_targetVariableID":"e8959efa-6ca5-4e8a-89da-12dd7770bc9b"},"stoppingDistance":{"_name":"stoppingDistance","_targetVariableID":"90f64bc6-fc90-4271-b89f-506d2189f3f4"},"$type":"NodeCanvas.Tasks.Actions.Walk"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Walk","_position":{"x":445.0,"y":259.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Rest","_position":{"x":603.0,"y":357.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"destinationsBBP":{"_name":"destinations","_targetVariableID":"21300f1d-e479-4e3e-8a4f-53059cf336f8"},"moveSpeedBBP":{"_name":"moveSpeed","_targetVariableID":"e8959efa-6ca5-4e8a-89da-12dd7770bc9b"},"stoppingDistance":{"_name":"stoppingDistance","_targetVariableID":"90f64bc6-fc90-4271-b89f-506d2189f3f4"},"targetRacer":{"_name":"targetRacer","_targetVariableID":"d65d9a3b-654b-45e3-90b3-9e18f68e0fb6"},"initialMoveSpeed":30,"destinationName":"Point","targetRacerName":"Turtle","$type":"NodeCanvas.Tasks.Actions.InitializeRacers"}]},"_position":{"x":353.0,"y":39.0},"$type":"NodeCanvas.StateMachines.OnFSMEnter"}],"connections":[{"_condition":{"BBscoreA":{"_name":"score","_targetVariableID":"67d66b3b-aede-4672-9ca6-7ef37cc70aac"},"targetGameObjectBB":{"_name":"targetRacer","_targetVariableID":"d65d9a3b-654b-45e3-90b3-9e18f68e0fb6"},"offsetScoreB":5,"$type":"NodeCanvas.Tasks.Conditions.CompareScore"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"timeout":{"_value":3.0},"$type":"NodeCanvas.Tasks.Conditions.Timeout"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"BBscoreA":{"_name":"score","_targetVariableID":"67d66b3b-aede-4672-9ca6-7ef37cc70aac"},"targetGameObjectBB":{"_name":"targetRacer","_targetVariableID":"d65d9a3b-654b-45e3-90b3-9e18f68e0fb6"},"offsetScoreB":1,"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.CompareScore"},"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"score":{"_name":"score","_id":"67d66b3b-aede-4672-9ca6-7ef37cc70aac","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentPoint":{"_name":"currentPoint","_id":"d7b02cc6-888c-4765-ae35-79b7ab2501ce","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"destinations":{"_value":[null,null,null,null],"_name":"destinations","_id":"21300f1d-e479-4e3e-8a4f-53059cf336f8","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"moveSpeed":{"_name":"moveSpeed","_id":"e8959efa-6ca5-4e8a-89da-12dd7770bc9b","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"stoppingDistance":{"_name":"stoppingDistance","_id":"90f64bc6-fc90-4271-b89f-506d2189f3f4","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"targetRacer":{"_name":"targetRacer","_id":"d65d9a3b-654b-45e3-90b3-9e18f68e0fb6","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 149, y: 46}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}

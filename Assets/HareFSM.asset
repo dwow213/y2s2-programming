@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: HareFSM
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"valueA":{"_name":"score","_targetVariableID":"79f122a6-312f-466d-82a7-46befdf73d01"},"Operation":2,"valueB":{"_value":1},"$type":"NodeCanvas.Tasks.Actions.SetInt"},{"score":{},"currentPoint":{"_name":"currentPoint","_targetVariableID":"1c04081c-8ded-4623-99f5-c8a32bce2182"},"destinations":{"_name":"destinations","_targetVariableID":"deeff96c-8ddf-4651-a73a-c8d377a7664a"},"setSpeed":5,"moveSpeed":{},"stoppingDistance":{},"moveBackwards":true,"$type":"NodeCanvas.Tasks.Actions.Walk"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Stagger","_position":{"x":480.0,"y":249.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_nestedFSM":{"_value":1},"_variablesMap":[{"_targetSubGraphVariableID":"d7b02cc6-888c-4765-ae35-79b7ab2501ce","_canRead":true,"_type":"System.Int32","_name":"currentPoint","_targetVariableID":"1c04081c-8ded-4623-99f5-c8a32bce2182"},{"_targetSubGraphVariableID":"21300f1d-e479-4e3e-8a4f-53059cf336f8","_canRead":true,"_type":"System.Collections.Generic.List`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","_name":"destinations","_targetVariableID":"deeff96c-8ddf-4651-a73a-c8d377a7664a"},{"_targetSubGraphVariableID":"67d66b3b-aede-4672-9ca6-7ef37cc70aac","_canRead":true,"_canWrite":true,"_type":"System.Int32","_name":"score","_targetVariableID":"79f122a6-312f-466d-82a7-46befdf73d01"}],"_position":{"x":217.0,"y":348.0},"$type":"NodeCanvas.StateMachines.NestedFSMState","$id":"1"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"blockadesBBP":{"_name":"blockades","_targetVariableID":"aec9be45-f836-4a95-bdc8-fdca21af39a7"},"blockadeName":"Blockade","$type":"NodeCanvas.Tasks.Actions.InitializeCollision"}]},"_position":{"x":227.0,"y":105.0},"$type":"NodeCanvas.StateMachines.OnFSMEnter"}],"connections":[{"_condition":{"timeout":{"_value":0.5},"$type":"NodeCanvas.Tasks.Conditions.Timeout"},"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_condition":{"blockadesBBP":{"_name":"blockades","_targetVariableID":"aec9be45-f836-4a95-bdc8-fdca21af39a7"},"stoppingDistance":0.5,"$type":"NodeCanvas.Tasks.Conditions.CollideBlockade"},"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"0"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"blockades":{"_value":[null,null],"_name":"blockades","_id":"aec9be45-f836-4a95-bdc8-fdca21af39a7","$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentPoint":{"_name":"currentPoint","_id":"1c04081c-8ded-4623-99f5-c8a32bce2182","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"destinations":{"_value":[null,null,null,null],"_name":"destinations","_id":"deeff96c-8ddf-4651-a73a-c8d377a7664a","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[System.Collections.Generic.List`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"score":{"_name":"score","_id":"79f122a6-312f-466d-82a7-46befdf73d01","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 9b79ebf5c0f127e46bf5b68b75331cda, type: 2}
+  _graphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 74, y: -47}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}

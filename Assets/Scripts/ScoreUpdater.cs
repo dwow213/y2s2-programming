@@ -1,10 +1,11 @@
 using NodeCanvas.Framework;
+using NodeCanvas.StateMachines;
 using TMPro;
 using UnityEngine;
 
 public class ScoreUpdater : MonoBehaviour
 {
-    public Blackboard hare;
+    public FSMOwner hare;
     public Blackboard turtle;
 
     public TextMeshProUGUI hareScoreText;
@@ -20,8 +21,9 @@ public class ScoreUpdater : MonoBehaviour
     void Update()
     {
         //get scores from the blackboards
-        int hareScore = hare.GetVariableValue<int>("score");
+        int hareScore = hare.blackboard.GetVariableValue<int>("score");
         int turtleScore = turtle.GetVariableValue<int>("score");
+        print($"Hare score: {hareScore}");
 
         hareScoreText.text = $"Hare Score: {hareScore}";
         turtleScoreText.text = $"Turtle Score: {turtleScore}";

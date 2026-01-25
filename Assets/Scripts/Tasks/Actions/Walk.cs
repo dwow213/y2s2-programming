@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using ParadoxNotion.Serialization.FullSerializer;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -17,6 +18,8 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<float> moveSpeed;
         public BBParameter<float> stoppingDistance;
 
+		public bool moveBackwards;
+
         protected override void OnExecute() 
 		{
 			moveSpeed.value = setSpeed;
@@ -24,17 +27,27 @@ namespace NodeCanvas.Tasks.Actions {
 		}
 
 		//Called once per frame while the action is active.
-		protected override void OnUpdate() 
+		protected override void OnUpdate()
 		{
-            //set destination to the next point
-            Transform destination = destinations.value[0];
-			if (currentPoint.value != 3)
+			Transform destination = null;
+			if (moveBackwards)
 			{
-                destination = destinations.value[currentPoint.value + 1];
+				destination = destinations.value[currentPoint.value];
+            }
+			else
+			{
+				//set destination to the next point
+				destination = destinations.value[0];
+				if (currentPoint.value != 3)
+				{
+					destination = destinations.value[currentPoint.value + 1];
+				}
             }
 
-			//move agent to the destination
-			agent.transform.position = Vector3.MoveTowards(agent.transform.position, destination.position, moveSpeed.value * Time.deltaTime);
+			Debug.Log(destination);
+
+            //move agent to the destination
+            agent.transform.position = Vector3.MoveTowards(agent.transform.position, destination.position, moveSpeed.value * Time.deltaTime);
 
 			//change destinations once we're within a certain distance of our current destination
 			if (Vector3.Distance(agent.transform.position, destination.position) < stoppingDistance.value)
