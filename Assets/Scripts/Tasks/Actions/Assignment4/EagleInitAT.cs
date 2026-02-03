@@ -11,6 +11,7 @@ namespace NodeCanvas.Tasks.Actions {
 		GameObject audioSources;
 		public BBParameter<AudioSource> flapping;
 		public BBParameter<AudioSource> quickFlapping;
+		public BBParameter<GameObject> forestAreas;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
@@ -19,6 +20,8 @@ namespace NodeCanvas.Tasks.Actions {
 			audioSources = GameObject.Find("AudioSources");
 			flapping.value = audioSources.transform.Find("Flapping").GetComponent<AudioSource>();
             quickFlapping.value = audioSources.transform.Find("QuickFlapping").GetComponent<AudioSource>();
+
+			forestAreas.value = GameObject.Find("Forests");
 
 			return null;
         }
