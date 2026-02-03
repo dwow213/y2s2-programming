@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: EaglePatrolFSM
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"flapping":{"_name":"flapping","_targetVariableID":"524b9441-2af2-4874-83ba-4ea26c9f798e"},"quickFlapping":{"_name":"quickFlapping","_targetVariableID":"15f2cb82-026e-45f3-abc6-6b146e663319"},"$type":"NodeCanvas.Tasks.Actions.PatrolAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":841.0,"y":461.0},"$type":"NodeCanvas.StateMachines.ActionState"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"selectedArea":{"_name":"selectedArea","_id":"9043d159-b605-441b-9e7d-cd8d895736be","$type":"NodeCanvas.Framework.Variable`1[[System.Int32,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"flapping":{"_name":"flapping","_id":"524b9441-2af2-4874-83ba-4ea26c9f798e","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AudioSource,
+    UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"quickFlapping":{"_name":"quickFlapping","_id":"15f2cb82-026e-45f3-abc6-6b146e663319","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AudioSource,
+    UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 13, y: 119}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}

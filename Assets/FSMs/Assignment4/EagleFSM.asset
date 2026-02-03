@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
+  m_Name: EagleFSM
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_nestedFSM":{"_value":1},"_variablesMap":[{"_targetSubGraphVariableID":"524b9441-2af2-4874-83ba-4ea26c9f798e","_canWrite":true,"_type":"UnityEngine.AudioSource","_name":"flapping","_targetVariableID":"2f160230-5096-48e8-8db9-8f1c153012a3"},{"_targetSubGraphVariableID":"15f2cb82-026e-45f3-abc6-6b146e663319","_canWrite":true,"_type":"UnityEngine.AudioSource","_name":"quickFlapping","_targetVariableID":"f4d86a81-f5f1-4cbf-8cf0-d026878e4689"}],"_position":{"x":496.0,"y":465.0},"$type":"NodeCanvas.StateMachines.NestedFSMState"},{"_actionList":{"executionMode":1,"actions":[]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":377.0878,"y":261.0398},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"flapping":{"_name":"flapping","_targetVariableID":"2f160230-5096-48e8-8db9-8f1c153012a3"},"quickFlapping":{"_name":"quickFlapping","_targetVariableID":"f4d86a81-f5f1-4cbf-8cf0-d026878e4689"},"$type":"NodeCanvas.Tasks.Actions.EagleInitAT"}]},"_position":{"x":494.0,"y":55.0},"$type":"NodeCanvas.StateMachines.OnFSMEnter"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"flapping":{"_name":"flapping","_id":"2f160230-5096-48e8-8db9-8f1c153012a3","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AudioSource,
+    UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"quickFlapping":{"_name":"quickFlapping","_id":"f4d86a81-f5f1-4cbf-8cf0-d026878e4689","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AudioSource,
+    UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"targetAnimal":{"_name":"targetAnimal","_id":"65ebc1c8-2730-44c2-91b3-12cba7dc5295","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 1846cc1e9dd4c3d478ebc37b0222d967, type: 2}
+  _graphSource:
+    _version: 3.33
+    _category: 
+    _comments: 
+    _translation: {x: 425, y: 246}
+    _zoomFactor: 1
+  _haltSerialization: 0
+  _externalSerializationFile: {fileID: 0}
