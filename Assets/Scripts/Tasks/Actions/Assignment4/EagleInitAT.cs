@@ -21,7 +21,7 @@ namespace NodeCanvas.Tasks.Actions {
 			flapping.value = audioSources.transform.Find("Flapping").GetComponent<AudioSource>();
             quickFlapping.value = audioSources.transform.Find("QuickFlapping").GetComponent<AudioSource>();
 
-			forestAreas.value = GameObject.Find("Forests");
+			forestAreas.value = GameObject.Find("ForestsSky");
 
 			return null;
         }

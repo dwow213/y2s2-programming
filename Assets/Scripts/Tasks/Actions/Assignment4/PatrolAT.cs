@@ -13,6 +13,8 @@ namespace NodeCanvas.Tasks.Actions {
 		public BBParameter<AudioSource> flapping;
         public BBParameter<int> selectedArea;
         public BBParameter<GameObject> forestAreas;
+		public BBParameter<int> lapsAmountBB;
+		public BBParameter<int> lapsDoneBB;
 
 		public Vector3[] circlePositions;
 		int currentCirclePos;
@@ -38,6 +40,9 @@ namespace NodeCanvas.Tasks.Actions {
 				float angle = i * Mathf.Deg2Rad;
 				circlePositions[i] = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radiusFromPos + forestAreaPos;
 			}
+
+			lapsAmountBB.value = Random.Range(1, 4);
+			lapsDoneBB.value = 0;
 		}
 
 		//Called once per frame while the action is active.
@@ -52,13 +57,19 @@ namespace NodeCanvas.Tasks.Actions {
             }
 
 			aiAgent.SetDestination(circlePositions[currentCirclePos]);
+			
+            Debug.Log(aiAgent.remainingDistance);
 
-            if (aiAgent.velocity.magnitude < 0.01f)
+            if (aiAgent.remainingDistance < 0.5f)
             {
 				currentCirclePos++;
 
 				if (currentCirclePos >= circlePositions.Length)
-					currentCirclePos = 0;
+				{
+                    currentCirclePos = 0;
+					lapsDoneBB.value++;
+                }
+					
             }
 
         }
