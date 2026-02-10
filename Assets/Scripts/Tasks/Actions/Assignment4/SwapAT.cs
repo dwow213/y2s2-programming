@@ -2,13 +2,13 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using ParadoxNotion.Serialization.FullSerializer;
 using UnityEngine;
+using UnityEngine.AI;
 
 
 namespace NodeCanvas.Tasks.Actions {
 
 	public class SwapAT : ActionTask 
 	{
-
         public BBParameter<AudioSource> quickFlapping;
 		public BBParameter<int> selectedArea;
 		public BBParameter<GameObject> forestAreas;
@@ -41,14 +41,21 @@ namespace NodeCanvas.Tasks.Actions {
 		{
 			Vector3 agentPos = agent.gameObject.transform.position;
 			Vector3 forestAreaPos = forestAreas.value.transform.GetChild(selectedArea.value).position;
+			NavMeshAgent aiAgent = agent.GetComponent<NavMeshAgent>();
 
-			Vector3 newPos = new Vector3(
+            Vector3 newPos = new Vector3(
 				forestAreaPos.x,
 				agentPos.y,
 				forestAreaPos.z
 			);
 
-			agent.gameObject.transform.position = newPos;
+			aiAgent.SetDestination(newPos);
+			Debug.Log(aiAgent.velocity.magnitude);
+
+			if (aiAgent.velocity.magnitude < 0.1f)
+			{
+				EndAction();
+			}
 		}
 
 		//Called when the task is disabled.
