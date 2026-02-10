@@ -7,9 +7,12 @@ namespace NodeCanvas.Tasks.Conditions {
 
 	public class CheckPatrolCT : ConditionTask 
 	{
-
 		public BBParameter<int> lapsAmountBB;
 		public BBParameter<int> lapsDoneBB;
+
+		public BBParameter<GameObject> playerBB;
+		public BBParameter<GameObject> forestAreasBB;
+		public BBParameter<int> selectedAreaBB;
 
 		public float timer;
 		public float endTimer;
@@ -28,16 +31,20 @@ namespace NodeCanvas.Tasks.Conditions {
 			endTimer = Random.Range(1, 10);
 		}
 
-		//Called whenever the condition gets disabled.
-		protected override void OnDisable() 
-		{
-			
-		}
-
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck() 
 		{
+			GameObject areaPlayerIsIn = playerBB.value.GetComponent<PlayerPlace>().currentArea;
+
+			if (areaPlayerIsIn != null)
+			{
+				if (areaPlayerIsIn.name == forestAreasBB.value.transform.GetChild(selectedAreaBB.value).name)
+				{
+					return true;
+				}
+			}
+	
 			if (lapsDoneBB.value < lapsAmountBB.value)
 				return false;
 
