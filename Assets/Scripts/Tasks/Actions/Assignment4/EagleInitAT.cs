@@ -9,26 +9,28 @@ namespace NodeCanvas.Tasks.Actions {
 	{
 
 		GameObject audioSources;
-		public BBParameter<AudioSource> flapping;
-		public BBParameter<AudioSource> quickFlapping;
-        public BBParameter<AudioSource> eagleAttackSound;
-        public BBParameter<GameObject> forestAreas;
-		public BBParameter<GameObject> player;
-		public BBParameter<GameObject> animals;
+		public BBParameter<AudioSource> flappingBBP;
+		public BBParameter<AudioSource> quickFlappingBBP;
+        public BBParameter<AudioSource> eagleAttackSoundBBP;
+		public BBParameter<AudioSource> eatingSoundBBP;
+        public BBParameter<GameObject> forestAreasBBP;
+		public BBParameter<GameObject> playerBBP;
+		public BBParameter<GameObject> animalsBBP;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
 		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() 
 		{
 			audioSources = GameObject.Find("AudioSources");
-			flapping.value = audioSources.transform.Find("Flapping").GetComponent<AudioSource>();
-            quickFlapping.value = audioSources.transform.Find("QuickFlapping").GetComponent<AudioSource>();
-            eagleAttackSound.value = audioSources.transform.Find("EagleAttack").GetComponent<AudioSource>();
+			flappingBBP.value = audioSources.transform.Find("Flapping").GetComponent<AudioSource>();
+            quickFlappingBBP.value = audioSources.transform.Find("QuickFlapping").GetComponent<AudioSource>();
+            eagleAttackSoundBBP.value = audioSources.transform.Find("EagleAttack").GetComponent<AudioSource>();
+            eatingSoundBBP.value = audioSources.transform.Find("Eating").GetComponent<AudioSource>();
 
-            player.value = GameObject.Find("Player");
-			forestAreas.value = GameObject.Find("ForestsSky");
+            playerBBP.value = GameObject.Find("Player");
+			forestAreasBBP.value = GameObject.Find("ForestsSky");
 
-			animals.value = GameObject.Find("Animals");
+			animalsBBP.value = GameObject.Find("Animals");
 
 			return null;
         }

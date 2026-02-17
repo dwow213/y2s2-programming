@@ -21,16 +21,6 @@ namespace NodeCanvas.Tasks.Actions {
 		int currentCirclePos;
 		public float radiusFromPos;
 
-        //Use for initialization. This is called only once in the lifetime of the task.
-        //Return null if init was successfull. Return an error string otherwise
-        protected override string OnInit() 
-		{
-			return null;
-		}
-
-		//This is called once each time the task is enabled.
-		//Call EndAction() to mark the action as finished, either in success or failure.
-		//EndAction can be called from anywhere.
 		protected override void OnExecute() 
 		{
             aiAgent = agent.GetComponent<NavMeshAgent>();
@@ -39,24 +29,25 @@ namespace NodeCanvas.Tasks.Actions {
             UpdateCirclePositions();
 		}
 
-		//Called once per frame while the action is active.
 		protected override void OnUpdate() 
 		{
 			
+			//plays flapping sound constantly
 			if (!flappingBBP.value.isPlaying)
 			{
                 flappingBBP.value.Play();
 				Debug.Log("flapping sound played");
             }
 
+			//make eagle move according to the circle positions
 			aiAgent.SetDestination(circlePositions[currentCirclePos]);
-			
-            Debug.Log(aiAgent.remainingDistance);
 
+			//go to the next position in the circle if we are close enough
             if (aiAgent.remainingDistance < 0.5f)
             {
 				currentCirclePos++;
 
+				//if a full revolution is complete, increase the amound of laps
 				if (currentCirclePos >= circlePositions.Length)
 				{
                     currentCirclePos = 0;

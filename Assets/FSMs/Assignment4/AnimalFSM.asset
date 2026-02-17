@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
   m_Name: AnimalFSM
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"speed":{"_value":4.0},"keepDistance":{"_value":0.1},"minWanderDistance":{"_value":5.0},"maxWanderDistance":{"_value":20.0},"$type":"NodeCanvas.Tasks.Actions.Wander"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_name":"Wander","_position":{"x":850.0,"y":498.0},"$type":"NodeCanvas.StateMachines.ActionState"},{"_conditionList":{"conditions":[]},"_actionList":{"executionMode":1,"actions":[{"eatingSoundBBP":{},"$type":"NodeCanvas.Tasks.Actions.AnimalInitAT"}]},"_position":{"x":924.0,"y":240.0},"$type":"NodeCanvas.StateMachines.OnFSMEnter"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"eatingSound":{"_name":"eatingSound","_id":"233f3627-a949-4770-bac2-ca377ecdbd8f","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AudioSource,
+    UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}}'
   _objectReferences: []
   _graphSource:
     _version: 3.33
     _category: 
     _comments: 
-    _translation: {x: 0, y: 0}
+    _translation: {x: 105, y: 66}
     _zoomFactor: 1
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}

@@ -10,6 +10,7 @@ namespace NodeCanvas.Tasks.Actions {
 	{
 
         public BBParameter<AudioSource> flappingBBP;
+		public BBParameter<AudioSource> eatingSoundBBP;
         public BBParameter<GameObject> targetAnimalBBP;
 
 		NavMeshAgent aiAgent;
@@ -21,6 +22,8 @@ namespace NodeCanvas.Tasks.Actions {
         {
 			targetAnimalBBP.value = null;
 			aiAgent = agent.GetComponent<NavMeshAgent>();
+
+			eatingSoundBBP.value.Play();
 		}
 
 		//Called once per frame while the action is active.
