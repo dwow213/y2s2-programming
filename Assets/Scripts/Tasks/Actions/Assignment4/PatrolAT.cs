@@ -10,12 +10,13 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class PatrolAT : ActionTask 
 	{
-		public BBParameter<AudioSource> flapping;
-        public BBParameter<int> selectedArea;
-        public BBParameter<GameObject> forestAreas;
-		public BBParameter<int> lapsAmountBB;
-		public BBParameter<int> lapsDoneBB;
+		public BBParameter<AudioSource> flappingBBP;
+        public BBParameter<int> selectedAreaBBP;
+        public BBParameter<GameObject> forestAreasBBP;
+		public BBParameter<int> lapsAmountBBP;
+		public BBParameter<int> lapsDoneBBP;
 
+		NavMeshAgent aiAgent;
 		public Vector3[] circlePositions;
 		int currentCirclePos;
 		public float radiusFromPos;
@@ -32,27 +33,19 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() 
 		{
-			circlePositions = new Vector3[360];
-            Vector3 forestAreaPos = forestAreas.value.transform.GetChild(selectedArea.value).position;
+            aiAgent = agent.GetComponent<NavMeshAgent>();
 
-            for (int i = 0; i < circlePositions.Length; i++)
-			{
-				float angle = i * Mathf.Deg2Rad;
-				circlePositions[i] = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radiusFromPos + forestAreaPos;
-			}
-
-			lapsAmountBB.value = Random.Range(1, 4);
-			lapsDoneBB.value = 0;
+			//get circle position of new area
+            UpdateCirclePositions();
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() 
 		{
-            NavMeshAgent aiAgent = agent.GetComponent<NavMeshAgent>();
-
-            if (!flapping.value.isPlaying)
+			
+			if (!flappingBBP.value.isPlaying)
 			{
-                flapping.value.Play();
+                flappingBBP.value.Play();
 				Debug.Log("flapping sound played");
             }
 
@@ -67,23 +60,27 @@ namespace NodeCanvas.Tasks.Actions {
 				if (currentCirclePos >= circlePositions.Length)
 				{
                     currentCirclePos = 0;
-					lapsDoneBB.value++;
+					lapsDoneBBP.value++;
                 }
 					
             }
 
         }
-
-		//Called when the task is disabled.
-		protected override void OnStop() 
+		
+		//gets new position for circling
+		void UpdateCirclePositions()
 		{
-			
-		}
+            circlePositions = new Vector3[360];
+            Vector3 forestAreaPos = forestAreasBBP.value.transform.GetChild(selectedAreaBBP.value).position;
 
-		//Called when the task is paused.
-		protected override void OnPause() 
-		{
-			
-		}
+            for (int i = 0; i < circlePositions.Length; i++)
+            {
+                float angle = i * Mathf.Deg2Rad;
+                circlePositions[i] = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radiusFromPos + forestAreaPos;
+            }
+
+            lapsAmountBBP.value = Random.Range(1, 4);
+            lapsDoneBBP.value = 0;
+        }
 	}
 }

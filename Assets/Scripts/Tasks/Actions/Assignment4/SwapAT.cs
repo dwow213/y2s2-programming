@@ -9,9 +9,9 @@ namespace NodeCanvas.Tasks.Actions {
 
 	public class SwapAT : ActionTask 
 	{
-        public BBParameter<AudioSource> quickFlapping;
-		public BBParameter<int> selectedArea;
-		public BBParameter<GameObject> forestAreas;
+        public BBParameter<AudioSource> quickFlappingBBP;
+		public BBParameter<int> selectedAreaBBP;
+		public BBParameter<GameObject> forestAreasBBP;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -25,13 +25,12 @@ namespace NodeCanvas.Tasks.Actions {
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() 
 		{
-			quickFlapping.value.Play();
-			Debug.Log("quick flapping sound played");
-			selectedArea.value++;
+			
+			selectedAreaBBP.value++;
 
-			if (selectedArea.value >= forestAreas.value.transform.childCount)
+			if (selectedAreaBBP.value >= forestAreasBBP.value.transform.childCount)
 			{
-				selectedArea.value = 0;
+				selectedAreaBBP.value = 0;
 			}
 
 		}
@@ -39,8 +38,14 @@ namespace NodeCanvas.Tasks.Actions {
 		//Called once per frame while the action is active.
 		protected override void OnUpdate()
 		{
-			Vector3 agentPos = agent.gameObject.transform.position;
-			Vector3 forestAreaPos = forestAreas.value.transform.GetChild(selectedArea.value).position;
+            if (!quickFlappingBBP.value.isPlaying)
+            {
+                quickFlappingBBP.value.Play();
+                Debug.Log("quick flapping sound played");
+            }
+
+            Vector3 agentPos = agent.gameObject.transform.position;
+			Vector3 forestAreaPos = forestAreasBBP.value.transform.GetChild(selectedAreaBBP.value).position;
 			NavMeshAgent aiAgent = agent.GetComponent<NavMeshAgent>();
 
             Vector3 newPos = new Vector3(
