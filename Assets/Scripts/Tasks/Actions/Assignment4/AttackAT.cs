@@ -15,28 +15,25 @@ namespace NodeCanvas.Tasks.Actions {
 
 		NavMeshAgent aiAgent;
 		
-		//Use for initialization. This is called only once in the lifetime of the task.
-		//Return null if init was successfull. Return an error string otherwise
 		protected override string OnInit() 
 		{
 			return null;
 		}
 
-		//This is called once each time the task is enabled.
-		//Call EndAction() to mark the action as finished, either in success or failure.
-		//EndAction can be called from anywhere.
 		protected override void OnExecute() 
 		{
             aiAgent = agent.GetComponent<NavMeshAgent>();
 			eagleAttackSoundBBP.value.Play();
-
+			
+			//disconnect ai agent from mesh temporarily
+			//this is because making the eagle move towards target uses transform
 			aiAgent.updatePosition = false;
             aiAgent.updateRotation = false;
         }
 
-		//Called once per frame while the action is active.
 		protected override void OnUpdate() 
 		{
+			//make the eagle look and move towards target
 			agent.gameObject.transform.position = Vector3.MoveTowards(agent.gameObject.transform.position, targetAnimalBBP.value.transform.position, moveSpeed * Time.deltaTime);
 			agent.gameObject.transform.LookAt(targetAnimalBBP.value.transform);
 
@@ -46,18 +43,11 @@ namespace NodeCanvas.Tasks.Actions {
 				EndAction();
 			}
 		}
-
-		//Called when the task is disabled.
 		protected override void OnStop() 
 		{
-            aiAgent.updatePosition = true;
+            //reconnect ai agent to mesh
+			aiAgent.updatePosition = true;
             aiAgent.updateRotation = true;
         }
-
-		//Called when the task is paused.
-		protected override void OnPause() 
-		{
-			
-		}
 	}
 }
