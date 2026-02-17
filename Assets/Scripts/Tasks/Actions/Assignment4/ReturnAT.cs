@@ -15,26 +15,25 @@ namespace NodeCanvas.Tasks.Actions {
 
 		NavMeshAgent aiAgent;
 
-		//This is called once each time the task is enabled.
-		//Call EndAction() to mark the action as finished, either in success or failure.
-		//EndAction can be called from anywhere.
 		protected override void OnExecute()
         {
 			targetAnimalBBP.value = null;
 			aiAgent = agent.GetComponent<NavMeshAgent>();
 
+            //play an eating sound
 			eatingSoundBBP.value.Play();
 		}
 
-		//Called once per frame while the action is active.
 		protected override void OnUpdate() 
 		{
+            //plays flapping sound constantly
             if (!flappingBBP.value.isPlaying)
             {
                 flappingBBP.value.Play();
                 Debug.Log("flapping sound played");
             }
 
+            //make eagle go back to mountain and wait
 			Vector3 newPos = new Vector3(0, agent.transform.position.y, 0);
             aiAgent.SetDestination(newPos);
 
